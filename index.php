@@ -1,16 +1,6 @@
 <?php
 
-$passwordLength = $_GET['characters-number'];
-
-function passwordGenerator($length) {
-
-    $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz@#$&*";
-    $generatedPassword = '';
-    for($i = 0; $i < $length; $i++) {
-        $generatedPassword .= $chars[rand(0, strlen($chars) - 1)];
-    }
-    return $generatedPassword;
-}
+include "./functions.php"
 
 ?>
 
@@ -40,8 +30,8 @@ function passwordGenerator($length) {
 
         <form action="index.php" class="mx-auto text-center mb-5">
             <div class="mb-3">
-                <label class="form-label" for="characters-number">Inserire numero di caratteri desiderato</label>
-                <input type="number" class="form-control text-center" id="characters-number" name="characters-number">
+                <label class="form-label" for="characters-number">Inserire numero di caratteri desiderato (tra 6 e 30)</label>
+                <input type="number" class="form-control text-center" id="characters-number" name="characters-number" min="6" max="30">
             </div>
             <button type="submit" class="btn btn-outline-light">Genera Password</button>
         </form>
@@ -49,7 +39,7 @@ function passwordGenerator($length) {
 
         <?php
 
-        if($passwordLength >=1 ) {
+        if(isset($_GET['characters-number'])) {
 
             echo "
             
