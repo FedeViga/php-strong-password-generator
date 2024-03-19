@@ -1,10 +1,3 @@
-<?php
-
-include "./functions.php"
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -24,35 +17,21 @@ include "./functions.php"
     
     <div class="container text-center py-5">
 
-        <h1 class="mb-5">
-            Random Password Generator
-        </h1>
+        <div class="card py-4 bg-success">
 
-        <form action="index.php" class="mx-auto text-center mb-5">
-            <div class="mb-3">
-                <label class="form-label" for="characters-number">Inserire numero di caratteri desiderato (tra 6 e 30)</label>
-                <input type="number" class="form-control text-center" id="characters-number" name="characters-number" min="6" max="30">
-            </div>
-            <button type="submit" class="btn btn-outline-light">Genera Password</button>
-        </form>
+            <h1 class="mb-5">
+                Random Password Generator
+            </h1>
 
+            <form action="password.php" class="mx-auto text-center mb-5">
+                <div class="mb-3">
+                    <label class="form-label" for="characters-number">Inserire numero di caratteri desiderato (tra 6 e 30)</label>
+                    <input type="number" class="form-control text-center" id="characters-number" name="characters-number" min="6" max="30">
+                </div>
+                <button type="submit" class="btn btn-dark">Genera Password</button>
+            </form>
+        </div>
 
-        <?php
-
-        if(isset($_GET['characters-number'])) {
-
-            echo "
-            
-            <h2>
-                Password Generata:
-            </h2>
-            <p>";
-                echo passwordGenerator($passwordLength);
-            echo"
-            </p>
-            ";
-        }
-        ?>
     </div>
 
 
